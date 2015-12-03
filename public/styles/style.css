@@ -1,4 +1,14 @@
+#status {
+  padding: 20px;
+}
 
+#header {
+  background-color: skyblue;
+}
+
+#navbar {
+  background-color: grey;
+}
 
 .name {
   width: 40%;

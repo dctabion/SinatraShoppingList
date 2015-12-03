@@ -1,1 +1,7 @@
 <h3>Update an item</h3>
+<form class="" action="/item_update_validate" method="post">
+  <input type="hidden" name="id" value="<%= @item.id %>">
+  <input type="text" name="name" value="<%= @item.name %>">
+  <input type="text" name="quantity" value="<%= @item.quantity %>">
+  <input type="submit" value="Update Item">
+</form>
