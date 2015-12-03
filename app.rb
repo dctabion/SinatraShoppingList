@@ -1,6 +1,11 @@
 require 'bundler'
 Bundler.require
 
+ActiveRecord::Base.establish_connection(
+  :database => 'shopping_list',
+  :adapter => 'postgresql'
+)
+
 get '/' do
   erb :home
 end
@@ -62,5 +67,6 @@ end
 
 
 get '/list' do
+  @items = Item.all
   erb :list
 end
