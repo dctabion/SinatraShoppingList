@@ -9,6 +9,28 @@ get '/login' do
   erb :login
 end
 
+post '/login_validation' do
+  p params
+  #binding.pry
+  # TODO replace this dummy logic
+
+  # if (params[:email] == "" && params[:login] == "")
+  #   p 'olo'
+  #   return erb :login_fail
+  #
+  # end
+  #
+  # p 'fuckit'
+  # return erb :login_success
+
+  if (params[:email] != "" && params[:login] != "")
+    @email = params[:email]
+    erb :login_success
+  else
+    erb :login_fail
+  end
+end
+
 get '/registration' do
   erb :registration
 end
@@ -18,10 +40,8 @@ post '/registration_validation' do
   reg_status = 'Developer made a mistake!'
 
   # ??? TODO add check if valid email address
-  # ??? TODO add check if passwords are not null or too long
 
-  # check if passwords
-  # valid: passwords & password confirmation match
+  # check if password is not empty & if passwords match
   if params[:password] != ''
     p 'password is not empty'
     if params[:password] == params[:password_conf]
@@ -29,11 +49,11 @@ post '/registration_validation' do
       @email = params[:email]
       erb :registration_success
     # invalid: password & password confirmation DO NOT match
-    elsif
+    else
       @reg_status = 'Password & confirmation DO NOT match!'
       erb :registration_fail
     end
-  elsif
+  else
     @reg_status = 'Invalid password!'
     erb :registration_fail
   end
