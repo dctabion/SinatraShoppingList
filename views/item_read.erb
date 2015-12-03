@@ -1,0 +1,29 @@
+<h3>Shopping List Home</h3>
+
+<!-- Status message -->
+<div>
+  <%= @status_msg %>
+</div>
+
+<!-- Display rows of items -->
+<% @items.each do |item| %>
+  <div>
+    <p class="name">
+      <%= item.name %>
+    </p>
+    <p class="quantity">
+      <%= item.quantity %>
+    </p>
+    <form class="button" action="item_update" method="post">
+      <input type="submit" value="Update">
+    </form>
+    <form class="button" action="item_delete" method="post">
+      <input type="submit" value="Delete">
+    </form>
+  </div>
+<% end %>
+
+<!-- Add an item button -->
+<form class="" action="/item_add" method="post">
+<input type="submit" value="Add an item">
+</form>

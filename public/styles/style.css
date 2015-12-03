@@ -1,0 +1,15 @@
+
+
+.name {
+  width: 40%;
+  display: inline;
+  background-color: red;
+}
+.quantity {
+  display: inline;
+  background: orange;
+  width: 20%;
+}
+.button {
+  display: inline;
+}

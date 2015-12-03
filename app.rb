@@ -66,7 +66,19 @@ post '/registration_validation' do
 end
 
 
-get '/list' do
+get '/item_read' do
   @items = Item.all
-  erb :list
+  erb :item_read
+end
+
+post '/item_add' do
+  erb :item_add
+end
+
+post '/item_update' do
+  erb :item_update
+end
+
+post '/item_delete' do
+  erb :item_delete
 end
