@@ -40,6 +40,6 @@ end
 
 * whats best way to redirect to a page with a button?
   * a href?
-  * <form method="get">  with  <input type="submit">  ?
+  * (form method="get")  with  <(nput type="submit")  ?
 
-* do i need form to wrap <input type="submit">  or can <input type="submit"> alone make a post/get?
+* do i need to use a form element to wrap (input type="submit")  or can (input type="submit") alone make a post/get?
