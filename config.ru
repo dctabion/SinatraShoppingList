@@ -1,3 +1,5 @@
-require './app'
-require './models/item'
-run Sinatra::Application
+require 'sinatra/base'
+
+Dir.glob('./{controllers,models,helpers}/*.rb').each { |file| require file }
+
+map('/') { run ItemsController }
