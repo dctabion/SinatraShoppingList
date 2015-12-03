@@ -105,10 +105,21 @@ post '/item_update_validate' do
   erb :item_read
 end
 
+post '/item_delete_confirm' do
+  @item = Item.find(params[:id])
+  erb :item_delete_confirm
+end
+
 post '/item_delete' do
-  item = Item.find(params[:id])
-  item.destroy
-  @status_msg = 'Your item was deleted.'
+  p params
+  if params[:delete]=='Delete'
+    item = Item.find(params[:id])
+    item.destroy
+    @status_msg = 'Your item was deleted.'
+  else
+    @status_msg = 'Cancelled.  Item was not deleted.'
+  end
+
   @items = Item.all
   erb :item_read
 end

@@ -1,0 +1,15 @@
+<div id='status'>Are you sure you want to delete the following item?</div>
+
+<div>
+  <p class="name">
+    <%= @item.name %>
+  </p>
+  <p class="quantity">
+    <%= @item.quantity %>
+  </p>
+  <form class="button" action="/item_delete" method="post">
+    <input type="hidden" name="id" value="<%= @item.id %>">
+    <input class="button" type="submit" name="delete" value="Delete">
+    <input class="button" type="submit" name="cancel" value="Cancel">
+  </form>
+<div>

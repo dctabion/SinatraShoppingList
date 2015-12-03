@@ -14,11 +14,11 @@
     <p class="quantity">
       <%= item.quantity %>
     </p>
-    <form class="button" action="item_update" method="post">
+    <form class="button" action="/item_update" method="post">
       <input type="hidden" name="id" value="<%= item.id %>">
       <input type="submit" value="Update">
     </form>
-    <form class="button" action="item_delete" method="post">
+    <form class="button" action="/item_delete_confirm" method="post">
       <input type="hidden" name="id" value="<%= item.id %>">
       <input type="submit" value="Delete">
     </form>
