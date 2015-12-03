@@ -67,12 +67,24 @@ end
 
 
 get '/item_read' do
+  @status_msg = params[1]
   @items = Item.all
   erb :item_read
 end
 
 post '/item_add' do
-  erb :item_add
+  erb :item_add_form
+  # redirect '/item_read'
+end
+
+post '/item_add_validate' do
+  # TODO add validation to this!!!
+  item = Item.new
+  item.name = params[:name]
+  item.quantity = params[:quantity].to_i
+  item.save
+  @status_msg = 'Your item was added.'
+  redirect '/item_read'
 end
 
 post '/item_update' do
@@ -80,5 +92,7 @@ post '/item_update' do
 end
 
 post '/item_delete' do
-  erb :item_delete
+  item = Item.find(params[:id])
+  item.destroy
+  redirect '/item_read'
 end
