@@ -67,7 +67,6 @@ DEPENDENCIES
   json
   pg
   pry
-  sinatra
   sinatra-activerecord
   tux
 
