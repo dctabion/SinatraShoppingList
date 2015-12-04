@@ -1,7 +1,15 @@
 # SinatraShoppingList
 A shopping list application using Sinatra
 
+## TODO
+Add logout button
+adjust menu based on if logged in or not
+
 ## ISSUES / QUESTIONS
+
+* Should I do authorization_check every route?
+
+
 * couldn't install on digital ocean!! why not? See error excerpt below
 ```
 root@shopping-list:~/SinatraShoppingList# bundle exec rackup -p 80 --host 0.0.0.0

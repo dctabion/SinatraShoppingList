@@ -77,6 +77,11 @@ class SessionController < ApplicationController
     end
   end
 
+  get '/logout' do
+    session[:current_user]=nil
+    erb :home
+  end
+
 
 
 end
