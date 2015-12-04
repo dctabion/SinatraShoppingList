@@ -1,9 +1,10 @@
 <h3>Login</h3>
 
+<p><%= @status_msg %></p>
 
-<form class="" action="/login_validation" method="post">
+<form class="" action="/session/login" method="post">
     <!-- <label for="email">Your email address</label> -->
-    <input type="text" id="email" name="email" placeholder="Your email address">
+    <input type="text" id="username" name="username" placeholder="Username">
     <input type="test" id="password" name="password" placeholder="Password">
     <input type="submit" name="Submit">
 </form>
