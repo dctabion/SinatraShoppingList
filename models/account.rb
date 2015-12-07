@@ -1,5 +1,7 @@
-class Account < ActiveRecord::Base
-  include BCrypt
+  class Account < ActiveRecord::Base
+    include BCrypt
+
+    has_many :shopping_items, class_name: :Item, foreign_key: :id_of_user
 
   # password setter will store hashed password in password_digest
   def password=(pwd)
@@ -30,5 +32,6 @@ class Account < ActiveRecord::Base
     return nil
     end
   end
+
 
 end

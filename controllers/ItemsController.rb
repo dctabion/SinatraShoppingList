@@ -6,7 +6,10 @@ class ItemsController < ApplicationController
   get '/item_read' do
     authorization_check
     @status_msg = params[1]
-    @items = Item.all
+    '----------------item_read------------------'
+    p session[:current_user]
+    @items = session[:current_user].shopping_items
+
     erb :item_read
   end
 
@@ -22,10 +25,10 @@ class ItemsController < ApplicationController
     item = Item.new
     item.name = params[:name]
     item.quantity = params[:quantity].to_i
+    item.id_of_user = session[:current_user].id
     item.save
     @status_msg = 'Your item was added.'
-    @items = Item.all
-    erb :item_read
+    redirect '/item_read'
   end
 
   post '/item_update' do
@@ -43,8 +46,7 @@ class ItemsController < ApplicationController
     item.quantity = params[:quantity].to_i
     item.save
     @status_msg = 'Your item was updated.'
-    @items = Item.all
-    erb :item_read
+    redirect '/item_read'
   end
 
   post '/item_delete_confirm' do
@@ -63,8 +65,6 @@ class ItemsController < ApplicationController
     else
       @status_msg = 'Cancelled.  Item was not deleted.'
     end
-
-    @items = Item.all
-    erb :item_read
+    redirect '/item_read'
   end
 end

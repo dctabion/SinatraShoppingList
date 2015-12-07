@@ -29,8 +29,9 @@ class SessionController < ApplicationController
         # set status msg and redirect to shopping list
         @status_msg = 'Thanks for registering, ' + current_user.user_name + '!'
         p '-----------------registration successful------------------'
-        @items = Item.all
-        erb :item_read
+        # @items = session[:current_user].shopping_items
+        # erb :item_read
+        redirect '/item_read'
 
       else
         @status_msg = 'Invalid password or password doesn\'t match'
@@ -63,8 +64,9 @@ class SessionController < ApplicationController
       if current_user.password == params[:password]
         session[:current_user] = current_user
         @status_msg = "Welcome back, " + current_user.user_name + "!"
-        @items = Item.all
-        return erb :item_read
+        # @items = session[:current_user].shopping_items
+        # return erb :item_read
+        redirect '/item_read'
       else
         @status_msg = "Invalid password!"
         return erb :login
